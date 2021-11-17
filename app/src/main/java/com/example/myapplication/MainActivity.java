@@ -15,7 +15,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button b1;
+     Button b1;
+    Button b2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +24,31 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         b1=findViewById(R.id.button);
+        b2=findViewById(R.id.button2);
+        String [] Colors = {"Red", "Green", "Blue"};
+
+
+
+
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("SetColor")
+                .setItems(Colors, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(MainActivity.this, Colors[which], Toast.LENGTH_SHORT).show();
+                    }
+                });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+
+
+
+            }
+        });
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
