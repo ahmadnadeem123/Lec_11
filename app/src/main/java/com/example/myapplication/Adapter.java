@@ -2,8 +2,10 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,14 +18,15 @@ public class Adapter extends AppCompatActivity {
     Button b1;
     ListView v1;
     EditText e1;
+    ArrayList<String> obj;
+    obj=new ArrayList<String>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_array_adapter);
 
 
-        ArrayList<String> obj;
-        obj=new ArrayList<String>();
 
         b1=findViewById(R.id.button3);
         v1=findViewById(R.id.list);
@@ -43,9 +46,27 @@ public class Adapter extends AppCompatActivity {
                 adp.notifyDataSetChanged();
 
 
+
             }
         });
 
+        v1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+        //        Intent obj2=new Intent(getApplicationContext(), MainActivity.class);
+       //         startActivity(obj2);
+
+                 customizelayout obj=new customizelayout(this, obj);
+
+
+
+
+
+
+            }
+        });
 
 
     }
